@@ -15,6 +15,15 @@ class PubSub {
             this.subscribers[event] = [];
         }
         this.subscribers[event].push(callback);
+
+        return () => {
+            this.unSubscribe(event,callback);
+        }
+    }
+
+    unSubscribe(event, callback) {
+        if(!this.subscribers[event]) return;
+        this.subscribers[event] = this.subscribers[event].filter(cb => cb !== callback);
     }
 
     /**
@@ -30,9 +39,13 @@ class PubSub {
 
 const pb = new PubSub();
 
-pb.subscribe('Nike', (data) => console.log('Subscriber_1 of Nike',data))
-pb.subscribe('Nike', (data) => console.log('Subscriber_2 of Nike',data))
-pb.subscribe('Puma', (data) => console.log('Subscriber_3 of Puma',data))
+const unSubscriber_NIKE_1 = pb.subscribe('Nike', (data) => console.log('Subscriber_1 of Nike',data))
+const unSubscriber_NIKE_2 = pb.subscribe('Nike', (data) => console.log('Subscriber_2 of Nike',data))
+const unSubscriber_PUMA_3 = pb.subscribe('Puma', (data) => console.log('Subscriber_3 of Puma',data))
 
 pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})
 pb.publish('Puma', {ShoeName: 'PUMA', Price: 1300})
+
+unSubscriber_NIKE_1();
+
+pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})

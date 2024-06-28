@@ -37,15 +37,15 @@ class PubSub {
     }
 }
 
-const pb = new PubSub();
+// const pb = new PubSub();
 
-const unSubscriber_NIKE_1 = pb.subscribe('Nike', (data) => console.log('Subscriber_1 of Nike',data))
-const unSubscriber_NIKE_2 = pb.subscribe('Nike', (data) => console.log('Subscriber_2 of Nike',data))
-const unSubscriber_PUMA_3 = pb.subscribe('Puma', (data) => console.log('Subscriber_3 of Puma',data))
+// const unSubscriber_NIKE_1 = pb.subscribe('Nike', (data) => console.log('Subscriber_1 of Nike',data))
+// const unSubscriber_NIKE_2 = pb.subscribe('Nike', (data) => console.log('Subscriber_2 of Nike',data))
+// const unSubscriber_PUMA_3 = pb.subscribe('Puma', (data) => console.log('Subscriber_3 of Puma',data))
 
-pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})
-pb.publish('Puma', {ShoeName: 'PUMA', Price: 1300})
+// pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})
+// pb.publish('Puma', {ShoeName: 'PUMA', Price: 1300})
 
-unSubscriber_NIKE_1();
+// unSubscriber_NIKE_1();
 
-pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})
+// pb.publish('Nike', {ShoeName: 'NIKE', Price: 1500})

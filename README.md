@@ -10,3 +10,7 @@
 2. Different actions will be performed by each subscriber when a common `event` is fired.
 
 3. One `event` -> has many subscribers
+
+### Demonstration
+
+![Demonstration](image.png)
